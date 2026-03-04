@@ -1,0 +1,109 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svg="using:Avalonia.Svg.Skia"
+        xmlns:viewModels="clr-namespace:SQLmanager"
+        x:Class="SQLmanager.MainWindow"
+        x:DataType="viewModels:MainWindowViewModel"
+        MinWidth="400" MinHeight="250"
+        SizeToContent="WidthAndHeight"
+        Title="Login">
+    
+    <Window.Styles>
+        <Style Selector="TextBlock.label">
+            <Setter Property="Margin" Value="0 0 0 5"/>
+        </Style>
+        
+        <Style Selector="TextBox.input">
+            <Setter Property="Margin" Value="0 0 0 10"/>
+        </Style>
+        
+        <Style Selector="Button.connect-button">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="MinWidth" Value="60"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="0 20 0 0"/>
+        </Style>
+    </Window.Styles>
+
+    <StackPanel Margin="20">
+        <Grid RowDefinitions="Auto,Auto,Auto">
+            <!-- Username Section -->
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="Usuario" 
+                         x:Name="UserLabel"
+                         Classes="label"/>
+                <TextBox x:Name="UsernameInput"
+                        Classes="input"
+                        AutomationProperties.LabeledBy="{Binding #UserLabel}"
+                        Watermark="Enter username"/>
+            </StackPanel>
+
+            <!-- Password Section -->
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="Contraseña"
+                         x:Name="PasswordLabel"
+                         Classes="label"/>
+                <TextBox x:Name="PasswordInput"
+                        Classes="input"
+                        PasswordChar="*"
+                        AutomationProperties.LabeledBy="{Binding #PasswordLabel}"
+                        Watermark="Enter password"/>
+            </StackPanel>
+
+            <!-- Host Section -->
+            <StackPanel Grid.Row="2">
+                <TextBlock Text="Host"
+                           x:Name="HostLabel"
+                           Classes="label"/>
+                <TextBox
+					    x:Name="HostInput"
+                        Classes="input"
+                        AutomationProperties.LabeledBy="{Binding #HostLabel}"
+                        Watermark="10.0.0.1"
+                        Text="{Binding Host, Mode=TwoWay}" />
+			</StackPanel>
+        </Grid>
+
+        <!-- Connect Button -->
+        <Button Click="OnConnectClick"
+                Classes="connect-button"
+                AutomationProperties.Name="Connect">
+            <StackPanel Orientation="Horizontal" Spacing="5">
+                <Image>
+                    <Image.Source>
+                        <svg:SvgImage Source="/Assets/Conexion.svg"/>
+                    </Image.Source>
+                </Image>
+                <TextBlock Text="Connect" 
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <!-- Credential Management Button -->
+        <Button Click="OnManageCredentialsClick"
+                Classes="connect-button"
+                AutomationProperties.Name="ManageCredentials"
+                Margin="0 10 0 0">
+            <StackPanel Orientation="Horizontal" Spacing="5">
+                <Image>
+                    <Image.Source>
+                        <svg:SvgImage Source="/Assets/user.svg"/>
+                    </Image.Source>
+                </Image>
+                <TextBlock Text="Manage Credentials" 
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+
+
+
+
+        <!-- Loading Indicator -->
+        <ProgressBar IsVisible="{Binding IsLoading}"
+                     IsIndeterminate="True"
+                     Margin="0 10 0 0"/>
+    </StackPanel>
+</Window>

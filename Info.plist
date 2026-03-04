@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>CFBundleName</key>
+    <string>SQLmanager</string>
+    <key>CFBundleDisplayName</key>
+    <string>SQLmanager</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.sqlmanager.app</string>
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleExecutable</key>
+    <string>SQLmanager</string>
+    <key>CFBundleIconFile</key>
+    <string>SQLmanager</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>10.13</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>Esta aplicación usa Face ID para proteger tus credenciales de base de datos de forma segura.</string>
+  </dict>
+</plist>
+

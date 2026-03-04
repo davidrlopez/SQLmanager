@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# .NET / MSBuild
+bin/
+obj/
+TestResults/
+*.user
+*.suo
+*.cache
+
+# IDE
+.vs/
+.idea/
+
+# Build / publish artifacts
+publish/
+
+# Runtime/local data
+audit.log
+*.db
+
+# Legacy Swift/Xcode remnants
+/.build
+/Packages
+xcuserdata/
+DerivedData/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc

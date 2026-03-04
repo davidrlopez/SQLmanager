@@ -1,0 +1,113 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="SQLmanager.InsertarClienteWindow"
+        Width="600" Height="800"
+        Title="Insertar Cliente">
+
+  <Border Classes="card" Margin="20">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+      <Grid
+        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+        ColumnDefinitions="Auto,*"
+        RowSpacing="12" ColumnSpacing="12"
+        Margin="8">
+
+        <!-- Reutilizamos una etiqueta más estilizada con padding automático -->
+
+        <!-- Campo: Código Cliente (ahora ID_CLIENTE) -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="ID Cliente:" VerticalAlignment="Center"/>
+        <TextBox x:Name="ID_CLIENTEInput" Grid.Row="0" Grid.Column="1"/>
+
+        <!-- Campo: Email -->
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Email:" VerticalAlignment="Center"/>
+        <TextBox x:Name="EMAILInput" Grid.Row="1" Grid.Column="1"/>
+
+        <!-- Campo: Comercial -->
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Comercial:" VerticalAlignment="Center"/>
+        <TextBox x:Name="COMERCIALInput" Grid.Row="2" Grid.Column="1"/>
+
+        <!-- Campo: Respuesta -->
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Respuesta:" VerticalAlignment="Center"/>
+        <TextBox x:Name="RESPUESTAInput" Grid.Row="3" Grid.Column="1"/>
+
+        <!-- Campo: Comentarios -->
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Comentarios:" VerticalAlignment="Center"/>
+        <TextBox x:Name="COMENTARIOSInput" Grid.Row="4" Grid.Column="1"/>
+
+        <!-- Campo: Categoria -->
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Categoria:" VerticalAlignment="Center"/>
+        <ComboBox x:Name="CATEGORIAInput" Grid.Row="5" Grid.Column="1">
+            <ComboBoxItem Content="Distribución Farmacéutica"/>
+            <ComboBoxItem Content="Veterinaria"/>
+            <ComboBoxItem Content="Distribución Veterinaria"/>
+            <ComboBoxItem Content="Farmacéutica"/>
+        </ComboBox>
+
+        <!-- Campo: Nombre Cliente -->
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Nombre Cliente:" VerticalAlignment="Center"/>
+        <TextBox x:Name="NOMBRE_CLIENTEInput" Grid.Row="6" Grid.Column="1"/>
+
+        <!-- Campo: Nombre Contacto -->
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Nombre Contacto:" VerticalAlignment="Center"/>
+        <TextBox x:Name="NOMBRE_CONTACTOInput" Grid.Row="7" Grid.Column="1"/>
+
+        <!-- Campo: Apellido Contacto -->
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Apellido Contacto:" VerticalAlignment="Center"/>
+        <TextBox x:Name="APELLIDO_CONTACTOInput" Grid.Row="8" Grid.Column="1"/>
+
+        <!-- Campo: Teléfono -->
+        <TextBlock Grid.Row="9" Grid.Column="0" Text="Teléfono:" VerticalAlignment="Center"/>
+        <TextBox x:Name="TELEFONOInput" Grid.Row="9" Grid.Column="1"/>
+
+        <!-- Campo: Dirección 1 -->
+        <TextBlock Grid.Row="10" Grid.Column="0" Text="Dirección 1:" VerticalAlignment="Center"/>
+        <TextBox x:Name="LINEA_DIRECCION1Input" Grid.Row="10" Grid.Column="1"/>
+
+        <!-- Campo: Dirección 2 -->
+        <TextBlock Grid.Row="11" Grid.Column="0" Text="Dirección 2:" VerticalAlignment="Center"/>
+        <TextBox x:Name="LINEA_DIRECCION2Input" Grid.Row="11" Grid.Column="1"/>
+
+        <!-- Campo: Ciudad -->
+        <TextBlock Grid.Row="12" Grid.Column="0" Text="Ciudad:" VerticalAlignment="Center"/>
+        <TextBox x:Name="CIUDADInput" Grid.Row="12" Grid.Column="1"/>
+
+        <!-- Campo: Región -->
+        <TextBlock Grid.Row="13" Grid.Column="0" Text="Región:" VerticalAlignment="Center"/>
+        <TextBox x:Name="REGIONInput" Grid.Row="13" Grid.Column="1"/>
+
+        <!-- Campo: País -->
+        <TextBlock Grid.Row="14" Grid.Column="0" Text="País:" VerticalAlignment="Center"/>
+        <TextBox x:Name="PAISInput" Grid.Row="14" Grid.Column="1"/>
+
+        <!-- Campo: Código Postal -->
+        <TextBlock Grid.Row="15" Grid.Column="0" Text="Código Postal:" VerticalAlignment="Center"/>
+        <TextBox x:Name="CODIGO_POSTALInput" Grid.Row="15" Grid.Column="1"/>
+
+        <!-- Campo: Campo -->
+        <TextBlock Grid.Row="16" Grid.Column="0" Text="Campo:" VerticalAlignment="Center"/>
+        <TextBox x:Name="CAMPOInput" Grid.Row="16" Grid.Column="1"/>
+
+        <!-- Campo: Verificado -->
+        <TextBlock Grid.Row="17" Grid.Column="0" Text="Verificado (0/1):" VerticalAlignment="Center"/>
+        <TextBox x:Name="VERIFICADOInput" Grid.Row="17" Grid.Column="1"/>
+
+        <!-- Botón de insertar -->
+        <Button Grid.Row="18" Grid.Column="1"
+                Content="Insertar Cliente"
+                Click="InsertarClienteFin_Click"
+                HorizontalAlignment="Left"
+                Margin="0,10,0,0" />
+
+        <!-- Mensaje de error -->
+        <TextBlock x:Name="MensajeErrorText"
+                   Grid.Row="19" Grid.Column="0" Grid.ColumnSpan="2"
+                   Foreground="Red"
+                   FontWeight="Bold"
+                   Margin="0,8,0,0"
+                   IsVisible="False"
+                   Text="" />
+
+      </Grid>
+    </ScrollViewer>
+  </Border>
+</Window>

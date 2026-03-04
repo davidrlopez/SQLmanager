@@ -1,0 +1,108 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svg="clr-namespace:Avalonia.Svg.Skia;assembly=Avalonia.Svg.Skia"
+        xmlns:local="clr-namespace:SQLmanager"
+        x:Class="SQLmanager.ConsultaWindow"
+        Width="800" Height="600"
+        Title="Consulta Oracle"
+        Background="White">
+    <DockPanel LastChildFill="True">
+        <!-- Contenido principal -->
+        <Grid VerticalAlignment="Stretch" RowDefinitions="Auto,*,Auto" ColumnDefinitions="Auto,Auto,*">
+            <!-- Left Sidebar: Entities -->
+            <Border Grid.Row="0" Grid.Column="0" Background="#F5F5F7" VerticalAlignment="Stretch" Grid.RowSpan="3" HorizontalAlignment="Stretch">
+                <StackPanel>
+                    <TextBlock Text="Entidades" Margin="10,10,10,5" FontWeight="SemiBold" FontSize="15" Foreground="#6E6E73"/>
+                    <ListBox x:Name="EntityListBox" SelectedIndex="0" Margin="10,0,10,0" HorizontalAlignment="Stretch">
+                        <ListBoxItem Content="Clientes" Background="#F5F5F7"/>
+                        <ListBoxItem Content="Clientes Asociados" Background="#F5F5F7"/>
+                        <ListBoxItem Content="Pedido" Background="#F5F5F7"/>
+                        <ListBoxItem Content="Pago" Background="#F5F5F7"/>
+                        <ListBoxItem Content="Empleados" Background="#F5F5F7"/>
+                    </ListBox>
+                </StackPanel>
+            </Border>
+
+            <!-- Right Sidebar: Query Types -->
+            <Border Grid.Row="0" Grid.Column="1" Background="#F5F5F7" Width="220" VerticalAlignment="Stretch" x:Name="QuerySidebarPanel" Grid.RowSpan="3">
+                <StackPanel>
+                    <TextBlock Text="Tipo de consulta" Margin="10,10,10,5" FontWeight="SemiBold" FontSize="15" Foreground="#6E6E73"/>
+                    <ListBox x:Name="QueryTypeListBox" Margin="10,0,10,0">
+                        <ListBoxItem Content="Mostrar todos" Background="#F5F5F7"/>
+                        <ListBoxItem Content="Buscar por nombre o ID" Background="#F5F5F7" />
+                        <ListBoxItem Content="Buscar por distribuidor" Background="#F5F5F7"/>
+                    </ListBox>
+                </StackPanel>
+            </Border>
+
+            <!-- Main Content Area -->
+            <Grid Grid.Row="1" Grid.Column="2" RowDefinitions="Auto,*,Auto,Auto" Margin="20" Background="White">
+                <!-- Fila 0: Input controls -->
+                <StackPanel Orientation="Horizontal" Spacing="10" Grid.Row="0">
+                    <TextBox x:Name="DatoTextBox" Watermark="Introduce el dato..." HorizontalAlignment="Stretch" Padding="6,4" MinWidth="200" IsVisible="False" />
+                    <ComboBox x:Name="DistribuidorComboBox" HorizontalAlignment="Stretch" Padding="6,4" MinWidth="150" IsVisible="False" />
+                    <ComboBox x:Name="CategoriaComboBox" HorizontalAlignment="Stretch" Padding="6,4" MinWidth="150" IsVisible="False" />
+                    <TextBlock x:Name="DatoErrorText" Foreground="Red" IsVisible="False" FontSize="12" />
+                    <Button Width="36" Height="36" BorderThickness="1" BorderBrush="Gray" Padding="4" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="BuscarPedidoButton" IsVisible="False">
+                        <Image Width="24" Height="24" Source="{SvgImage /Assets/buscarPedido.svg}" />
+                    </Button>
+                    <Button Width="36" Height="36" BorderThickness="1" BorderBrush="Gray" Padding="4" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="BuscarPagoButton" IsVisible="False">
+                        <Image Width="24" Height="24" Source="/Assets/BuscarPago.jpg" />
+                    </Button>
+                    <Button Width="36" Height="36" BorderThickness="1" BorderBrush="Gray" Padding="4" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="BuscarEmpleadosButton" IsVisible="False">
+                        <Image Width="24" Height="24" Source="{SvgImage /Assets/search.svg}" />
+                    </Button>
+                    <Button x:Name="InsertarClienteButton" Width="40" Height="40" HorizontalAlignment="Right" Background="Transparent" Padding="4" BorderThickness="0">
+                        <Image Source="{SvgImage /Assets/Insertarcliente.svg}" 
+                           Width="30" Height="30" />
+                    </Button>
+                    <Button x:Name="InsertarPedidoButton" Width="40" Height="40" HorizontalAlignment="Right" Background="Transparent" Padding="4" BorderThickness="0" IsVisible="False">
+                        <Image Source="{SvgImage /Assets/InsertarPedido.svg}" Width="30" Height="30" />
+                    </Button>
+                    <Button x:Name="InsertarPagoButton" Width="40" Height="40" HorizontalAlignment="Right" Background="Transparent" Padding="4" BorderThickness="0" IsVisible="False">
+                        <Image Source="{SvgImage /Assets/InsertarPago.svg}" Width="30" Height="30" />
+                    </Button>
+                    <Button x:Name="InsertarEmpleadosButton" Width="40" Height="40" HorizontalAlignment="Right" Background="Transparent" Padding="4" BorderThickness="0" IsVisible="False">
+                        <Image Source="{SvgImage /Assets/InsertarEmpleado.svg}" Width="30" Height="30" />
+                    </Button>
+                    <Button x:Name="InsertarClienteAsociadoButton" Width="40" Height="40" HorizontalAlignment="Right" Background="Transparent" Padding="4" BorderThickness="0" IsVisible="False">
+                        <Image Source="{SvgImage /Assets/Insertarcliente.svg}" Width="30" Height="30" />
+                    </Button>
+                    <Button x:Name="ExportExcelButton" Width="40" Height="40" HorizontalAlignment="Right" Background="Transparent" Padding="4" BorderThickness="0" ToolTip.Tip="Exportar a Excel">
+                        <Image Source="{SvgImage /Assets/excel.svg}" 
+                           Width="30" Height="30" />
+                    </Button>
+                    <Button x:Name="RefreshButton" Width="40" Height="40" HorizontalAlignment="Right" Background="Transparent" Padding="4" BorderThickness="0" ToolTip.Tip="Refrescar datos" IsVisible="False" Click="RefreshButton_Click">
+                        <TextBlock Text="🔄" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                </StackPanel>
+
+                <!-- Tabla visual con paginación -->
+                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="TablaResultado" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                </ScrollViewer>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" Spacing="10">
+                    <Button x:Name="AnteriorPaginaButton" Content="Anterior" Width="90" Height="32" />
+                    <TextBox x:Name="PaginaActualTextBox"
+         VerticalAlignment="Center"
+         FontWeight="Bold"
+         FontSize="16"
+         Width="60"
+         HorizontalContentAlignment="Center"
+         KeyDown="PaginaActualTextBox_KeyDown"
+         LostFocus="PaginaActualTextBox_LostFocus" />
+                    <TextBlock x:Name="TotalPaginasText" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" />
+                    <Button x:Name="SiguientePaginaButton" Content="Siguiente" Width="90" Height="32" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Footer dentro del Grid principal -->
+            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Margin="0,0,20,10" ColumnDefinitions="Auto,Auto">
+                <Image Source="avares://SQLmanager/Assets/SQLmanager.png" HorizontalAlignment="Left" Stretch="UniformToFill" Width="34" Height="34" Grid.Column="0" />
+                <TextBlock Text="©2025 SQLmanager.World" FontSize="10" HorizontalAlignment="Left" Foreground="Gray" VerticalAlignment="Center" Margin="8,0,0,0" Grid.Column="1" />
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>
+
+
