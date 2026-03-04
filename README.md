@@ -11,15 +11,15 @@ Cross-platform desktop application for operational and commercial management, bu
 ## Screenshots
 
 <p align="center">
-  <img src="Screenshots/SQLmanager2.png" width="600" alt="Login screen">
-  <br>
-  <sub>Login — OS credential storage via macOS Keychain.</sub>
-</p>
-
-<p align="center">
   <img src="Screenshots/SQLmanager4.png" width="600" alt="Main query view">
   <br>
   <sub>Main view — dynamic search, inline table results and Excel export.</sub>
+</p>
+
+<p align="center">
+  <img src="Screenshots/SQLmanager2.png" width="600" alt="Login screen">
+  <br>
+  <sub>Login — OS credential storage via macOS Keychain.</sub>
 </p>
 
 <p align="center">
