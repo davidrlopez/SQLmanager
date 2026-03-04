@@ -11,15 +11,22 @@ Cross-platform desktop application for operational and commercial management, bu
 ## Screenshots
 
 <p align="center">
-  <img src="Screenshots/SQLmanager2.png" width="500" alt="Login screen">
+  <img src="Screenshots/SQLmanager2.png" width="600" alt="Login screen">
   <br>
   <sub>Login — OS credential storage via macOS Keychain.</sub>
 </p>
 
-| | |
-|:---:|:---:|
-| <img src="Screenshots/SQLmanager4.png" width="400" alt="Main query view"> <br> <sub>Main view — dynamic search, inline table results and Excel export.</sub> | <img src="Screenshots/SQLmanager3.png" width="400" alt="Client insertion form"> <br> <sub>Client insertion form with live data.</sub> |
+<p align="center">
+  <img src="Screenshots/SQLmanager4.png" width="600" alt="Main query view">
+  <br>
+  <sub>Main view — dynamic search, inline table results and Excel export.</sub>
+</p>
 
+<p align="center">
+  <img src="Screenshots/SQLmanager3.png" width="600" alt="Insert client form">
+  <br>
+  <sub>Client insertion form with live data.</sub>
+</p>
 ---
 
 ## What this project does
