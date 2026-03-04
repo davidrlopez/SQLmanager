@@ -13,19 +13,19 @@ Cross-platform desktop application for operational and commercial management, bu
 <p align="center">
   <img src="Screenshots/SQLmanager4.png" width="600" alt="Main query view">
   <br>
-  <sub>Main view — dynamic search, inline table results and Excel export.</sub>
+  <sub>Login — OS credential storage via macOS Keychain.</sub>
 </p>
 
 <p align="center">
   <img src="Screenshots/SQLmanager2.png" width="600" alt="Login screen">
   <br>
-  <sub>Login — OS credential storage via macOS Keychain.</sub>
+  <sub>Client insertion form with live data.</sub>
 </p>
 
 <p align="center">
   <img src="Screenshots/SQLmanager3.png" width="600" alt="Insert client form">
   <br>
-  <sub>Client insertion form with live data.</sub>
+  <sub>Main view — dynamic search, inline table results and Excel export.</sub>
 </p>
 ---
 
@@ -37,14 +37,14 @@ OracleManager is an internal tool used to manage clients, orders, payments and e
 
 ## Stack
 
-| Component | Technology |
-|---|---|
-| Language | C# / .NET 9.0 |
-| UI | Avalonia 11.3.3 |
-| Database | Oracle (`Oracle.ManagedDataAccess.Core` 23.9.1) |
-| Credential storage | macOS Keychain / Windows Credential Manager |
-| DI | `Microsoft.Extensions.DependencyInjection` |
-| Architecture | MVVM + service layer + DAO |
+| Component          | Technology                                      |
+| ------------------ | ----------------------------------------------- |
+| Language           | C# / .NET 9.0                                   |
+| UI                 | Avalonia 11.3.3                                 |
+| Database           | Oracle (`Oracle.ManagedDataAccess.Core` 23.9.1) |
+| Credential storage | macOS Keychain / Windows Credential Manager     |
+| DI                 | `Microsoft.Extensions.DependencyInjection`      |
+| Architecture       | MVVM + service layer + DAO                      |
 
 ---
 
@@ -60,6 +60,7 @@ All user-supplied values go through Oracle parameters, not string interpolation.
 All connection attempts (success and failure) are logged via `IAuditLogger` without ever writing credentials or full connection strings to disk.
 
 **Environment-based configuration**
+
 ```bash
 export DB_USER="your_user"
 export DB_HOST="host:1521/FREE"
@@ -117,11 +118,13 @@ The original codebase had hardcoded credentials and insecure logging practices �
 ## Contributors
 
 **Jesús Francisco Espinosa Sánchez** ([@hir0krim](https://github.com/hir0krim))
+
 - Implemented deep link / meta-link navigation support within the Avalonia application
 - Co-designed the entity-relationship model for the database schema, including field definition and mapping to the UI layer
 - Conducted exploratory and stress testing to identify functional defects and improve application robustness
 
 **Moira Perez Rodriguez** ([@Moipr99](https://github.com/Moipr99))
+
 - Engineered data preprocessing pipelines to clean and migrate legacy data into the Oracle database, ensuring schema integrity and optimized query performance
 - Implemented compatibility with Windows Hello and Windows Credential Manager, enabling secure application access via OS-level PIN and system credentials
 - Co-developed the authentication bridge for the desktop application, specifically handling the integration with Windows Security APIs to complement the macOS Keychain implementation
